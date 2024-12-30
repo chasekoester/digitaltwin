@@ -1,4 +1,4 @@
-const API_KEY = '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';  // Replace with your actual API key
+const API_KEY = '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';  // Replace with your actual OpenAI API key
 
 // Function to get advice from OpenAI API
 async function getAIAdvice(userDecision, userGoals) {
