@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digital Twin App</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Customization Screen -->
+    <section id="customizationScreen" class="screen">
+      <header class="screen-header">
+        <h1>Create Your Ideal Self</h1>
+        <p>Let’s create a roadmap based on your goals, strengths, and challenges.</p>
+      </header>
+      <form id="customizationForm">
+        <div class="input-card">
+          <label for="goal">What's Your Primary Goal?</label>
+          <input type="text" id="goal" name="goal" placeholder="E.g., Career, Health, Relationships" required>
+        </div>
+        <div class="input-card">
+          <label for="strengths">Your Strengths</label>
+          <input type="text" id="strengths" name="strengths" placeholder="E.g., Communication, Problem-Solving" required>
+        </div>
+        <div class="input-card">
+          <label for="weaknesses">Your Weaknesses</label>
+          <input type="text" id="weaknesses" name="weaknesses" placeholder="E.g., Procrastination, Impatience" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Next: Enter Decision</button>
+      </form>
+    </section>
+
+    <!-- Decision Screen -->
+    <section id="decisionScreen" class="screen">
+      <header class="screen-header">
+        <h1>Enter Your Decision</h1>
+        <p>What decision are you currently facing?</p>
+      </header>
+      <div class="input-card">
+        <input type="text" id="decision" name="decision" placeholder="E.g., Should I change careers?" required>
+      </div>
+      <button id="decisionSubmit" class="btn btn-primary">Generate Advice</button>
+    </section>
+
+    <!-- Advice Screen -->
+    <section id="adviceScreen" class="screen">
+      <header class="screen-header">
+        <h1>Your Personalized Insights</h1>
+        <p>Here’s the advice from your better self.</p>
+      </header>
+      <div id="insight" class="advice-card">
+        <p>Your personalized advice will appear here.</p>
+      </div>
+      <button id="backButton" class="btn btn-secondary">Back to Decision</button>
+    </section>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
