@@ -1,65 +1,53 @@
-// app.js
+const API_KEY = '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';  // Replace with your actual API key
 
-// Function to switch between screens
-function switchScreens(currentScreen, nextScreen) {
-  currentScreen.style.opacity = 0;
-  setTimeout(() => {
-    currentScreen.style.display = 'none';
-    nextScreen.style.display = 'block';
-    setTimeout(() => {
-      nextScreen.style.opacity = 1;
-    }, 50);
-  }, 500);
+// Function to get advice from OpenAI API
+async function getAIAdvice(userDecision) {
+    const url = 'https://api.openai.com/v1/completions';
+    const headers = {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${API_KEY}`,
+    };
+
+    const data = {
+        model: 'gpt-4', // Or 'gpt-3.5-turbo' for GPT-3
+        prompt: `You are a wise advisor. A person is considering the following decision: "${userDecision}". What advice would you give to make the best choice?`,
+        max_tokens: 150,
+        temperature: 0.7,  // Adjust this for more creativity or accuracy
+    };
+
+    try {
+        const response = await fetch(url, {
+            method: 'POST',
+            headers: headers,
+            body: JSON.stringify(data),
+        });
+
+        const result = await response.json();
+        const advice = result.choices[0].text.trim();  // Extract advice from the response
+
+        // Display the advice in the UI
+        document.getElementById('ai-advice').innerText = advice;
+        document.getElementById('decision-screen').style.display = 'none';  // Hide the decision screen
+        document.getElementById('advice-screen').style.display = 'block';  // Show the advice screen
+    } catch (error) {
+        console.error("Error fetching AI advice:", error);
+    }
 }
 
-// Handle customization form submission
-document.getElementById('customizationForm').addEventListener('submit', function (e) {
-  e.preventDefault();
-  
-  // Collect customization values
-  const goal = document.getElementById('goal').value;
-  const strengths = document.getElementById('strengths').value;
-  const weaknesses = document.getElementById('weaknesses').value;
+// Function to handle the decision submission
+document.getElementById('submit-decision').addEventListener('click', () => {
+    const userDecision = document.getElementById('user-decision').value;
 
-  // Store the values in local storage (or a global variable for now)
-  localStorage.setItem('goal', goal);
-  localStorage.setItem('strengths', strengths);
-  localStorage.setItem('weaknesses', weaknesses);
+    if (userDecision.trim() === '') {
+        alert("Please enter a decision.");
+        return;
+    }
 
-  // Switch to the decision screen
-  const currentScreen = document.getElementById('customizationScreen');
-  const nextScreen = document.getElementById('decisionScreen');
-  switchScreens(currentScreen, nextScreen);
+    getAIAdvice(userDecision);
 });
 
-// Handle decision input and generate advice
-document.getElementById('decisionSubmit').addEventListener('click', function () {
-  const decision = document.getElementById('decision').value;
-  
-  if (!decision) {
-    alert("Please enter a decision to proceed.");
-    return;
-  }
-  
-  // For now, generate simple advice based on stored customization data
-  const goal = localStorage.getItem('goal');
-  const strengths = localStorage.getItem('strengths');
-  const weaknesses = localStorage.getItem('weaknesses');
-
-  let advice = `Based on your goal of "${goal}", and your strengths in "${strengths}", you should consider focusing on overcoming your weaknesses like "${weaknesses}" to make an informed decision.`;
-
-  // Set the advice on the advice screen
-  document.getElementById('insight').innerHTML = `<p>${advice}</p>`;
-
-  // Switch to the advice screen
-  const currentScreen = document.getElementById('decisionScreen');
-  const nextScreen = document.getElementById('adviceScreen');
-  switchScreens(currentScreen, nextScreen);
-});
-
-// Go back to the decision screen
-document.getElementById('backButton').addEventListener('click', function () {
-  const currentScreen = document.getElementById('adviceScreen');
-  const nextScreen = document.getElementById('decisionScreen');
-  switchScreens(currentScreen, nextScreen);
+// Back to the goal screen
+document.getElementById('back-to-goals').addEventListener('click', () => {
+    document.getElementById('advice-screen').style.display = 'none';
+    document.getElementById('decision-screen').style.display = 'block';
 });
