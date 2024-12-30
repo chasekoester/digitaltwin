@@ -1,52 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Digital Twin App</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Twin AI Advisor</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="app-container">
-    <!-- Customization Screen -->
-    <section id="customizationScreen" class="screen">
-      <header class="screen-header">
-        <h1>Create Your Ideal Self</h1>
-        <p>Let’s create a roadmap based on your goals, strengths, and challenges.</p>
-      </header>
-      <form id="customizationForm">
-        <div class="input-card">
-          <label for="goal">What's Your Primary Goal?</label>
-          <input type="text" id="goal" name="goal" placeholder="E.g., Career, Health, Relationships" required>
-        </div>
-        <div class="input-card">
-          <label for="strengths">Your Strengths</label>
-          <input type="text" id="strengths" name="strengths" placeholder="E.g., Communication, Problem-Solving" required>
-        </div>
-        <div class="input-card">
-          <label for="weaknesses">Your Weaknesses</label>
-          <input type="text" id="weaknesses" name="weaknesses" placeholder="E.g., Procrastination, Impatience" required>
-        </div>
-        <button type="submit" class="btn btn-primary">Next: Enter Decision</button>
-      </form>
-    </section>
+    <!-- Goal Screen (Customization) -->
+    <div id="goal-screen" class="screen">
+        <h1>Customize Your Digital Twin</h1>
+        <p>Define your goals, values, and preferences to shape your better self.</p>
+        <textarea id="user-goals" placeholder="Describe your goals..."></textarea>
+        <button id="submit-goals">Submit Goals</button>
+    </div>
 
-   <!-- Decision Screen -->
-<div id="decision-screen" class="screen">
-    <h2>Enter Your Decision</h2>
-    <textarea id="user-decision" placeholder="Describe your decision..."></textarea>
-    <button id="submit-decision">Submit</button>
-</div>
+    <!-- Decision Screen -->
+    <div id="decision-screen" class="screen" style="display: none;">
+        <h2>Enter Your Decision</h2>
+        <textarea id="user-decision" placeholder="Describe your decision..."></textarea>
+        <button id="submit-decision">Submit</button>
+    </div>
 
-<!-- AI Advice Screen -->
-<div id="advice-screen" class="screen" style="display: none;">
-    <h2>AI's Advice</h2>
-    <p id="ai-advice">Loading advice...</p>
-    <button id="back-to-goals">Back to Goals</button>
-</div>
+    <!-- AI Advice Screen -->
+    <div id="advice-screen" class="screen" style="display: none;">
+        <h2>AI's Advice</h2>
+        <p id="ai-advice">Loading advice...</p>
+        <button id="back-to-goals">Back to Goals</button>
+    </div>
 
-
-  <script src="app.js"></script>
+    <script src="app.js"></script>
 </body>
 </html>
+
