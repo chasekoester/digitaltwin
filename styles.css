@@ -5,51 +5,62 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f9;
+    font-family: 'Arial', sans-serif;
+    background-color: #f7f7f7;
     color: #333;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
-}
-
-.screen {
-    width: 100%;
-    max-width: 600px;
-    padding: 20px;
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
+    flex-direction: column;
 }
 
 h1, h2 {
-    font-size: 24px;
+    color: #4CAF50;
+    font-size: 28px;
     margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.screen {
+    width: 90%;
+    max-width: 600px;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 textarea {
     width: 100%;
     height: 150px;
-    padding: 10px;
-    margin: 20px 0;
-    border-radius: 8px;
-    border: 1px solid #ddd;
+    padding: 12px;
+    margin-top: 20px;
     font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
     resize: none;
 }
 
 button {
     background-color: #4CAF50;
-    color: white;
+    color: #fff;
     border: none;
-    padding: 10px 20px;
-    font-size: 16px;
+    padding: 12px 24px;
+    font-size: 18px;
     cursor: pointer;
     border-radius: 8px;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s;
+    margin-top: 20px;
 }
 
 button:hover {
@@ -62,6 +73,12 @@ button:focus {
 
 #ai-advice {
     font-size: 18px;
-    color: #444;
-    margin: 20px 0;
+    color: #555;
+    margin-top: 30px;
+    line-height: 1.6;
 }
+
+#user-goals, #user-decision {
+    margin-bottom: 20px;
+}
+
