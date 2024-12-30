@@ -32,30 +32,20 @@
       </form>
     </section>
 
-    <!-- Decision Screen -->
-    <section id="decisionScreen" class="screen">
-      <header class="screen-header">
-        <h1>Enter Your Decision</h1>
-        <p>What decision are you currently facing?</p>
-      </header>
-      <div class="input-card">
-        <input type="text" id="decision" name="decision" placeholder="E.g., Should I change careers?" required>
-      </div>
-      <button id="decisionSubmit" class="btn btn-primary">Generate Advice</button>
-    </section>
+   <!-- Decision Screen -->
+<div id="decision-screen" class="screen">
+    <h2>Enter Your Decision</h2>
+    <textarea id="user-decision" placeholder="Describe your decision..."></textarea>
+    <button id="submit-decision">Submit</button>
+</div>
 
-    <!-- Advice Screen -->
-    <section id="adviceScreen" class="screen">
-      <header class="screen-header">
-        <h1>Your Personalized Insights</h1>
-        <p>Here’s the advice from your better self.</p>
-      </header>
-      <div id="insight" class="advice-card">
-        <p>Your personalized advice will appear here.</p>
-      </div>
-      <button id="backButton" class="btn btn-secondary">Back to Decision</button>
-    </section>
-  </div>
+<!-- AI Advice Screen -->
+<div id="advice-screen" class="screen" style="display: none;">
+    <h2>AI's Advice</h2>
+    <p id="ai-advice">Loading advice...</p>
+    <button id="back-to-goals">Back to Goals</button>
+</div>
+
 
   <script src="app.js"></script>
 </body>
